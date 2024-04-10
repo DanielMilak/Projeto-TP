@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 using Repositorio;
 
 namespace Servicos
@@ -6,7 +7,8 @@ namespace Servicos
     public interface IServEvento
     {
         void Inserir(InserirEventoDTO inserirEventoDto);
-        List<Evento> BuscarTodos();
+        public void Cancelar(int id, Boolean CancelarEvento);
+        List<EntidadeEvento> BuscarTodos();
     }
 
     public class ServEvento : IServEvento
@@ -20,16 +22,26 @@ namespace Servicos
 
         public void Inserir(InserirEventoDTO inserirEventoDto)
         {
-            var evento = new Evento();
+            EntidadeEvento evento = new EntidadeEvento(){Nome = inserirEventoDto.Nome,
+                                                         Local = inserirEventoDto.Local,
+                                                         Atracao = inserirEventoDto.Atracao,
+                                                         ValorIngresso = inserirEventoDto.ValorIngresso,
+                                                         Cancelado = true
+                                                         };
 
-            evento.Nome = inserirEventoDto.Nome;
-            evento.Local = inserirEventoDto.Local;
-            evento.Atracao = inserirEventoDto.Atracao;
-            evento.ValorIngresso = inserirEventoDto.ValorIngresso;
             _repoEvento.Inserir(evento);
         }
 
-        public List<Evento> BuscarTodos()
+        public void Cancelar(int id, Boolean CancelarEvento)
+        {
+            var eventoExistente = _repoEvento.BuscarId(id);
+
+            eventoExistente.Cancelado = CancelarEvento;
+
+            _repoEvento.Atualizar(eventoExistente);
+        }
+
+        public List<EntidadeEvento> BuscarTodos()
         {
             var eventos = _repoEvento.BuscarTodos();
 

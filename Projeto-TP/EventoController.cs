@@ -37,14 +37,22 @@ namespace Apresentacao
             {
                 var eventos = _servEvento.BuscarTodos();
 
-                var eventoEnxuta = eventos.Select(p =>
-                    new
-                    {
-                        Id = p.Id,
-                        Nome = p.Nome
-                    }).ToList();
+                return Ok(eventos);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
 
-                return Ok(eventoEnxuta);
+        [HttpPut]
+        public ActionResult CancelarEvento(int id, Boolean CancelarEvento)
+        {
+            try
+            {
+                _servEvento.Cancelar(id, CancelarEvento);
+
+                return Ok();
             }
             catch (Exception e)
             {

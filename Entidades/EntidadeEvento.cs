@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Servicos
+﻿namespace Entidades
 {
-    public class InserirEventoDTO
+    public class EntidadeEvento
     {
+        public int Id { get; set; }
+
         public required string Nome { get; set; }
 
         public required string Local { get; set; }
@@ -15,5 +11,11 @@ namespace Servicos
         public required string Atracao { get; set; }
 
         public decimal ValorIngresso { get; set; }
+
+        public DateTime DataEvento { get; set; }
+
+        public Boolean Cancelado { get; set; }
+
     }
+
 }

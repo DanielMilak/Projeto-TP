@@ -1,11 +1,14 @@
 ﻿using Entidades;
+using Microsoft.EntityFrameworkCore;
 
 namespace Repositorio
 {
     public interface IRepoEvento
     {
-        void Inserir(Evento evento);
-        List<Evento> BuscarTodos();
+        void Inserir(EntidadeEvento evento);
+        void Atualizar(EntidadeEvento evento);
+        public EntidadeEvento BuscarId(int id);
+        List<EntidadeEvento> BuscarTodos();
     }
 
     public class RepoEvento : IRepoEvento
@@ -17,14 +20,28 @@ namespace Repositorio
             _dataContext = dataContext;
         }
 
-        public void Inserir(Evento evento)
+        public void Inserir(EntidadeEvento evento)
         {
             _dataContext.Add(evento);
 
             _dataContext.SaveChanges();
         }
 
-        public List<Evento> BuscarTodos()
+        public void Atualizar(EntidadeEvento evento)
+        {
+            _dataContext.Update(evento);
+
+            _dataContext.SaveChanges();
+        }
+
+        public EntidadeEvento BuscarId(int id)
+        {
+            EntidadeEvento? evento = _dataContext.Evento.FirstOrDefault(evento => evento.Id == id);
+
+            return evento ?? throw new Exception("Evento não encontrado");
+        }
+
+        public List<EntidadeEvento> BuscarTodos()
         {
             var evento = _dataContext.Evento.ToList();
 

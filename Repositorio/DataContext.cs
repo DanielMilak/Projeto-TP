@@ -16,11 +16,11 @@ namespace Repositorio
 
         }
 
-        public DbSet<Evento> Evento { get; set; }
+        public DbSet<EntidadeEvento> Evento { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Evento>().HasKey(p => p.Id);
+            modelBuilder.Entity<EntidadeEvento>().HasKey(p => p.Id);
 
             base.OnModelCreating(modelBuilder);
         }
