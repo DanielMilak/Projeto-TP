@@ -16,6 +16,7 @@ builder.Services.AddDbContext<DataContext>(option =>
 );
 
 builder.Services.AddScoped<IServEvento, ServEvento>();
+builder.Services.AddScoped<IRepoEvento, RepoEvento>();
 
 var app = builder.Build();
 
