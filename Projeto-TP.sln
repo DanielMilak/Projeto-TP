@@ -3,7 +3,32 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projeto-TP", "Projeto-TP\Projeto-TP.csproj", "{81C664C3-3908-4491-BC4C-62555ECEBE1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Apresentacao", "Projeto-TP\Apresentacao.csproj", "{81C664C3-3908-4491-BC4C-62555ECEBE1E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{433F044E-E8EE-47D3-9BD8-7EDBAC86C9AE} = {433F044E-E8EE-47D3-9BD8-7EDBAC86C9AE}
+		{B68E8017-CE63-41A6-A91D-CB18834819E5} = {B68E8017-CE63-41A6-A91D-CB18834819E5}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Apresentacao", "1 - Apresentacao", "{01146A92-A10F-469E-B76A-868399426F78}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Servicos", "2 - Servicos", "{8FCE65D7-1B7A-4010-874F-9AE86BE41A8B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Repositorio", "3 - Repositorio", "{62A704A5-83EA-420A-ABAD-FB1D21CAC39E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "X - Entidades", "X - Entidades", "{FFCA24DE-F1BF-4671-8F94-97445515E2A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Servicos", "Servicos\Servicos.csproj", "{433F044E-E8EE-47D3-9BD8-7EDBAC86C9AE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B68E8017-CE63-41A6-A91D-CB18834819E5} = {B68E8017-CE63-41A6-A91D-CB18834819E5}
+		{E5A2FE1F-906A-4A75-84E0-6ED13F8E318B} = {E5A2FE1F-906A-4A75-84E0-6ED13F8E318B}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositorio", "Repositorio\Repositorio.csproj", "{E5A2FE1F-906A-4A75-84E0-6ED13F8E318B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B68E8017-CE63-41A6-A91D-CB18834819E5} = {B68E8017-CE63-41A6-A91D-CB18834819E5}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{B68E8017-CE63-41A6-A91D-CB18834819E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +40,27 @@ Global
 		{81C664C3-3908-4491-BC4C-62555ECEBE1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81C664C3-3908-4491-BC4C-62555ECEBE1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81C664C3-3908-4491-BC4C-62555ECEBE1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{433F044E-E8EE-47D3-9BD8-7EDBAC86C9AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{433F044E-E8EE-47D3-9BD8-7EDBAC86C9AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{433F044E-E8EE-47D3-9BD8-7EDBAC86C9AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{433F044E-E8EE-47D3-9BD8-7EDBAC86C9AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5A2FE1F-906A-4A75-84E0-6ED13F8E318B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5A2FE1F-906A-4A75-84E0-6ED13F8E318B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5A2FE1F-906A-4A75-84E0-6ED13F8E318B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5A2FE1F-906A-4A75-84E0-6ED13F8E318B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B68E8017-CE63-41A6-A91D-CB18834819E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B68E8017-CE63-41A6-A91D-CB18834819E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B68E8017-CE63-41A6-A91D-CB18834819E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B68E8017-CE63-41A6-A91D-CB18834819E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{81C664C3-3908-4491-BC4C-62555ECEBE1E} = {01146A92-A10F-469E-B76A-868399426F78}
+		{433F044E-E8EE-47D3-9BD8-7EDBAC86C9AE} = {8FCE65D7-1B7A-4010-874F-9AE86BE41A8B}
+		{E5A2FE1F-906A-4A75-84E0-6ED13F8E318B} = {62A704A5-83EA-420A-ABAD-FB1D21CAC39E}
+		{B68E8017-CE63-41A6-A91D-CB18834819E5} = {FFCA24DE-F1BF-4671-8F94-97445515E2A8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {50A06B07-E03F-40CF-A7F6-71D25B60E07D}
