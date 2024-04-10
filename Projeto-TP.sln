@@ -17,18 +17,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Repositorio", "3 - Repo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "X - Entidades", "X - Entidades", "{FFCA24DE-F1BF-4671-8F94-97445515E2A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Servicos", "Servicos\Servicos.csproj", "{433F044E-E8EE-47D3-9BD8-7EDBAC86C9AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Servicos", "Servicos\Servicos.csproj", "{433F044E-E8EE-47D3-9BD8-7EDBAC86C9AE}"
 	ProjectSection(ProjectDependencies) = postProject
 		{B68E8017-CE63-41A6-A91D-CB18834819E5} = {B68E8017-CE63-41A6-A91D-CB18834819E5}
 		{E5A2FE1F-906A-4A75-84E0-6ED13F8E318B} = {E5A2FE1F-906A-4A75-84E0-6ED13F8E318B}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositorio", "Repositorio\Repositorio.csproj", "{E5A2FE1F-906A-4A75-84E0-6ED13F8E318B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositorio", "Repositorio\Repositorio.csproj", "{E5A2FE1F-906A-4A75-84E0-6ED13F8E318B}"
 	ProjectSection(ProjectDependencies) = postProject
 		{B68E8017-CE63-41A6-A91D-CB18834819E5} = {B68E8017-CE63-41A6-A91D-CB18834819E5}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{B68E8017-CE63-41A6-A91D-CB18834819E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entidades", "Entidades\Entidades.csproj", "{B68E8017-CE63-41A6-A91D-CB18834819E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

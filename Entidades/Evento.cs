@@ -1,6 +1,6 @@
 ﻿namespace Entidades
 {
-    public class Eventos
+    public class Evento
     {
         public int Id { get; set; }
 

@@ -3,47 +3,37 @@ using Repositorio;
 
 namespace Servicos
 {
-    public interface IServPizzaria
+    public interface IServEvento
     {
-        void Inserir(InserirPizzariaDTO inserirPizzariaDto);
-        List<Pizzaria> BuscarTodos();
+        void Inserir(InserirEventoDTO inserirEventoDto);
+        List<Evento> BuscarTodos();
     }
 
-    public class ServPizzaria : IServPizzaria
+    public class ServEvento : IServEvento
     {
-        private IRepoPizzaria _repoPizzaria;
+        private IRepoEvento _repoEvento;
 
-        public ServPizzaria(IRepoPizzaria repoPizzaria)
+        public ServEvento(IRepoEvento repoEvento)
         {
-            _repoPizzaria = repoPizzaria;
+            _repoEvento = repoEvento;
         }
 
-        public void Inserir(InserirPizzariaDTO inserirPizzariaDto)
+        public void Inserir(InserirEventoDTO inserirEventoDto)
         {
-            var pizzaria = new Pizzaria();
+            var evento = new Evento();
 
-            pizzaria.Nome = inserirPizzariaDto.Nome;
-            pizzaria.Telefone = inserirPizzariaDto.Telefone;
-            pizzaria.Endereco = inserirPizzariaDto.Endereco;
-
-            ValidacoesAntesDeInserir(pizzaria);
-
-            _repoPizzaria.Inserir(pizzaria);
+            evento.Nome = inserirEventoDto.Nome;
+            evento.Local = inserirEventoDto.Local;
+            evento.Atracao = inserirEventoDto.Atracao;
+            evento.ValorIngresso = inserirEventoDto.ValorIngresso;
+            _repoEvento.Inserir(evento);
         }
 
-        public void ValidacoesAntesDeInserir(Pizzaria pizzaria)
+        public List<Evento> BuscarTodos()
         {
-            if (pizzaria.Nome.Length < 40)
-            {
-                throw new Exception("Nome inválido. Deve possuir no mínimo 40 caracteres.");
-            }
-        }
+            var eventos = _repoEvento.BuscarTodos();
 
-        public List<Pizzaria> BuscarTodos()
-        {
-            var pizzarias = _repoPizzaria.BuscarTodos();
-
-            return pizzarias;
+            return eventos;
         }
     }
 }
