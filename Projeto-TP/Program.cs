@@ -19,6 +19,8 @@ builder.Services.AddScoped<IServEvento, ServEvento>();
 builder.Services.AddScoped<IRepoEvento, RepoEvento>();
 builder.Services.AddScoped<IServComprador, ServComprador>();
 builder.Services.AddScoped<IRepoComprador, RepoComprador>();
+builder.Services.AddScoped<IServVenda, ServVenda>();
+builder.Services.AddScoped<IRepoVenda, RepoVenda>();
 
 var app = builder.Build();
 
