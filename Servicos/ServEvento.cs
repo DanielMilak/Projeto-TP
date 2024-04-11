@@ -22,12 +22,14 @@ namespace Servicos
 
         public void Inserir(InserirEventoDTO inserirEventoDto)
         {
-            EntidadeEvento evento = new EntidadeEvento(){Nome = inserirEventoDto.Nome,
-                                                         Local = inserirEventoDto.Local,
-                                                         Atracao = inserirEventoDto.Atracao,
-                                                         ValorIngresso = inserirEventoDto.ValorIngresso,
-                                                         Cancelado = true
-                                                         };
+            EntidadeEvento evento = new EntidadeEvento()
+            {
+                Nome = inserirEventoDto.Nome,
+                Local = inserirEventoDto.Local,
+                Atracao = inserirEventoDto.Atracao,
+                ValorIngresso = inserirEventoDto.ValorIngresso,
+                Cancelado = true
+            };
 
             _repoEvento.Inserir(evento);
         }

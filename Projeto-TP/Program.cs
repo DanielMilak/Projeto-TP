@@ -17,6 +17,8 @@ builder.Services.AddDbContext<DataContext>(option =>
 
 builder.Services.AddScoped<IServEvento, ServEvento>();
 builder.Services.AddScoped<IRepoEvento, RepoEvento>();
+builder.Services.AddScoped<IServComprador, ServComprador>();
+builder.Services.AddScoped<IRepoComprador, RepoComprador>();
 
 var app = builder.Build();
 
