@@ -45,7 +45,7 @@ namespace Repositorio
 
         public List<EntidadeVenda> BuscarTodos()
         {
-            var venda = _dataContext.Venda.ToList();
+            var venda = _dataContext.Venda.Include(p=> p.Comprador).Include(p=> p.Evento).ToList();
 
             return venda;
         }

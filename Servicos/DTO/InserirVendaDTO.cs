@@ -8,9 +8,9 @@ namespace Servicos
 {
     public class InserirVendaDTO
     {
-        public required string CompradorId { get; set; }
+        public required int CompradorId { get; set; }
 
-        public required string EventoId { get; set; }
+        public required int EventoId { get; set; }
 
         public int Quantidade { get; set; }
     }

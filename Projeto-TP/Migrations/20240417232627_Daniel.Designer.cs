@@ -11,8 +11,8 @@ using Repositorio;
 namespace Projeto_TP.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240411010808_teste")]
-    partial class teste
+    [Migration("20240417232627_Daniel")]
+    partial class Daniel
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -87,13 +87,11 @@ namespace Projeto_TP.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("CompradorId")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("CompradorId")
+                        .HasColumnType("INTEGER");
 
-                    b.Property<string>("EventoId")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("EventoId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<bool>("Extornado")
                         .HasColumnType("INTEGER");
@@ -103,7 +101,30 @@ namespace Projeto_TP.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CompradorId");
+
+                    b.HasIndex("EventoId");
+
                     b.ToTable("Venda");
+                });
+
+            modelBuilder.Entity("Entidades.EntidadeVenda", b =>
+                {
+                    b.HasOne("Entidades.EntidadeComprador", "Comprador")
+                        .WithMany()
+                        .HasForeignKey("CompradorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entidades.EntidadeVenda", "Evento")
+                        .WithMany()
+                        .HasForeignKey("EventoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Comprador");
+
+                    b.Navigation("Evento");
                 });
 #pragma warning restore 612, 618
         }

@@ -84,13 +84,11 @@ namespace Projeto_TP.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("CompradorId")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("CompradorId")
+                        .HasColumnType("INTEGER");
 
-                    b.Property<string>("EventoId")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("EventoId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<bool>("Extornado")
                         .HasColumnType("INTEGER");
@@ -100,7 +98,30 @@ namespace Projeto_TP.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CompradorId");
+
+                    b.HasIndex("EventoId");
+
                     b.ToTable("Venda");
+                });
+
+            modelBuilder.Entity("Entidades.EntidadeVenda", b =>
+                {
+                    b.HasOne("Entidades.EntidadeComprador", "Comprador")
+                        .WithMany()
+                        .HasForeignKey("CompradorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entidades.EntidadeVenda", "Evento")
+                        .WithMany()
+                        .HasForeignKey("EventoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Comprador");
+
+                    b.Navigation("Evento");
                 });
 #pragma warning restore 612, 618
         }

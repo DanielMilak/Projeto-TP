@@ -22,6 +22,14 @@ namespace Repositorio
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<EntidadeEvento>().HasKey(p => p.Id);
+            modelBuilder.Entity<EntidadeVenda>()
+                .HasOne(e => e.Comprador)
+                .WithMany()
+                .HasForeignKey(e => e.CompradorId);
+            modelBuilder.Entity<EntidadeVenda>()
+                .HasOne(e => e.Evento)
+                .WithMany()
+                .HasForeignKey(e => e.EventoId);
 
             base.OnModelCreating(modelBuilder);
         }
