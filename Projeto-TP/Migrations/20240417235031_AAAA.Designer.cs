@@ -11,8 +11,8 @@ using Repositorio;
 namespace Projeto_TP.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240417232627_Daniel")]
-    partial class Daniel
+    [Migration("20240417235031_AAAA")]
+    partial class AAAA
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -90,10 +90,10 @@ namespace Projeto_TP.Migrations
                     b.Property<int>("CompradorId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("EventoId")
+                    b.Property<bool>("Estornado")
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("Extornado")
+                    b.Property<int>("EventoId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Quantidade")
@@ -116,7 +116,7 @@ namespace Projeto_TP.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Entidades.EntidadeVenda", "Evento")
+                    b.HasOne("Entidades.EntidadeEvento", "Evento")
                         .WithMany()
                         .HasForeignKey("EventoId")
                         .OnDelete(DeleteBehavior.Cascade)

@@ -36,7 +36,7 @@ namespace Servicos
         {
             var vendaExistente = _repoVenda.BuscarId(id);
 
-            vendaExistente.Extornado = ExtornarVenda;
+            vendaExistente.Estornado = ExtornarVenda;
 
             _repoVenda.Atualizar(vendaExistente);
         }

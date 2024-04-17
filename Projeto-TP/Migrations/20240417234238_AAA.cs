@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Projeto_TP.Migrations
 {
     /// <inheritdoc />
-    public partial class Daniel : Migration
+    public partial class AAA : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -67,9 +67,9 @@ namespace Projeto_TP.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Venda_Venda_EventoId",
+                        name: "FK_Venda_Evento_EventoId",
                         column: x => x.EventoId,
-                        principalTable: "Venda",
+                        principalTable: "Evento",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -89,13 +89,13 @@ namespace Projeto_TP.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Evento");
-
-            migrationBuilder.DropTable(
                 name: "Venda");
 
             migrationBuilder.DropTable(
                 name: "Comprador");
+
+            migrationBuilder.DropTable(
+                name: "Evento");
         }
     }
 }
