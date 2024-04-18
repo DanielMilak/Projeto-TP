@@ -10,7 +10,7 @@ namespace Apresentacao
     {
         private IServVenda _servVenda;
 
-        public VendaController(IServVenda servVenda)
+        public VendaController(IServVenda servVenda, IServEvento servEvento)
         {
             _servVenda = servVenda;
         }
@@ -28,6 +28,7 @@ namespace Apresentacao
             {
                 return BadRequest(e.Message);
             }
+            
         }
 
         [HttpGet]

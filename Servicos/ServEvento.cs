@@ -1,5 +1,6 @@
 ﻿using Entidades;
 using Microsoft.EntityFrameworkCore.Query.Internal;
+using Microsoft.Extensions.Logging;
 using Repositorio;
 
 namespace Servicos
@@ -9,15 +10,18 @@ namespace Servicos
         void Inserir(InserirEventoDTO inserirEventoDto);
         public void Cancelar(int id, Boolean CancelarEvento);
         List<EntidadeEvento> BuscarTodos();
+        public void AtualizaIngressos(int id, int quantidadeingresso);
     }
 
     public class ServEvento : IServEvento
     {
         private IRepoEvento _repoEvento;
+        private IRepoVenda _repoVenda;
 
-        public ServEvento(IRepoEvento repoEvento)
+        public ServEvento(IRepoEvento repoEvento, IRepoVenda repoVenda)
         {
             _repoEvento = repoEvento;
+            _repoVenda = repoVenda;
         }
 
         public void Inserir(InserirEventoDTO inserirEventoDto)
@@ -28,7 +32,8 @@ namespace Servicos
                 Local = inserirEventoDto.Local,
                 Atracao = inserirEventoDto.Atracao,
                 ValorIngresso = inserirEventoDto.ValorIngresso,
-                Cancelado = true
+                QuantidadeIngresso = inserirEventoDto.QuantidadeIngresso
+               // Cancelado = true
             };
 
             _repoEvento.Inserir(evento);
@@ -40,6 +45,8 @@ namespace Servicos
 
             eventoExistente.Cancelado = CancelarEvento;
 
+            _repoVenda.ExtornarVendaEvento(id);
+
             _repoEvento.Atualizar(eventoExistente);
         }
 
@@ -48,6 +55,14 @@ namespace Servicos
             var eventos = _repoEvento.BuscarTodos();
 
             return eventos;
+        }
+        public void AtualizaIngressos(int id, int quantidadeingresso)
+        {
+            var eventoExistente = _repoEvento.BuscarId(id);
+
+            eventoExistente.QuantidadeIngresso -= quantidadeingresso;
+
+            _repoEvento.Atualizar(eventoExistente);
         }
     }
 }

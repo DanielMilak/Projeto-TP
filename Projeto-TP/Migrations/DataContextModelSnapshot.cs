@@ -70,6 +70,9 @@ namespace Projeto_TP.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("QuantidadeIngresso")
+                        .HasColumnType("INTEGER");
+
                     b.Property<decimal>("ValorIngresso")
                         .HasColumnType("TEXT");
 

@@ -11,8 +11,8 @@ using Repositorio;
 namespace Projeto_TP.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240417235031_AAAA")]
-    partial class AAAA
+    [Migration("20240418020816_kugyhf")]
+    partial class kugyhf
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -72,6 +72,9 @@ namespace Projeto_TP.Migrations
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("QuantidadeIngresso")
+                        .HasColumnType("INTEGER");
 
                     b.Property<decimal>("ValorIngresso")
                         .HasColumnType("TEXT");

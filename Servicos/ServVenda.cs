@@ -14,14 +14,31 @@ namespace Servicos
     public class ServVenda : IServVenda
     {
         private IRepoVenda _repoVenda;
-
-        public ServVenda(IRepoVenda repoVenda)
+        private IRepoEvento _repoEvento;
+        private IRepoComprador _repoComprador;
+        private IServEvento _servEvento;
+        public ServVenda(IRepoVenda repoVenda, IRepoComprador repoComprador, IRepoEvento repoEvento, IServEvento servEvento)
         {
             _repoVenda = repoVenda;
+            _servEvento = servEvento;
+            _repoEvento = repoEvento;
+            _repoComprador = repoComprador;
+
         }
         
         public void Inserir(InserirVendaDTO inserirVendaDto)
         {
+            var evento = _repoEvento.BuscarId(inserirVendaDto.EventoId);
+            if (evento.QuantidadeIngresso < inserirVendaDto.Quantidade) 
+            {
+                throw new Exception("Quantidade de Ingresso disponivel no evento nao e suficiente");
+            }
+            if (inserirVendaDto.Quantidade < 1)
+            {
+                throw new Exception("Nao foi informada a quantidade de ingressos");
+            }
+            _repoComprador.BuscarId(inserirVendaDto.CompradorId); 
+            
             EntidadeVenda venda = new EntidadeVenda()
             {
                 CompradorId = inserirVendaDto.CompradorId,
@@ -30,6 +47,7 @@ namespace Servicos
             };
 
             _repoVenda.Inserir(venda);
+            _servEvento.AtualizaIngressos(inserirVendaDto.EventoId, inserirVendaDto.Quantidade);
         }
 
         public void Extornar(int id, Boolean ExtornarVenda)

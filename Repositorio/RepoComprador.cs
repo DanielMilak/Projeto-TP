@@ -40,7 +40,7 @@ namespace Repositorio
         {
             EntidadeComprador? comprador = _dataContext.Comprador.FirstOrDefault(comprador => comprador.Id == id);
 
-            return comprador ?? throw new Exception("Evento não encontrado");
+            return comprador ?? throw new Exception("Comprador não encontrado");
         }
 
         public List<EntidadeComprador> BuscarTodos()

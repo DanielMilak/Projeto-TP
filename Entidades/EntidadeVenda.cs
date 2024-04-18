@@ -10,7 +10,7 @@
 
         public int  Quantidade { get; set; }
 
-        public Boolean Estornado { get; set; } = true;
+        public Boolean Estornado { get; set; } = false;
         public EntidadeComprador Comprador { get; set; }
         public EntidadeEvento Evento { get; set; }
     }

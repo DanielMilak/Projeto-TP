@@ -15,5 +15,7 @@ namespace Servicos
         public required string Atracao { get; set; }
 
         public decimal ValorIngresso { get; set; }
+
+        public int QuantidadeIngresso { get; set; }
     }
 }

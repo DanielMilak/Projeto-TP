@@ -18,7 +18,7 @@ namespace Entidades
 
         public DateTime DtNasc { get; set; }
 
-        public Boolean Cancelado { get; set; }
+        public Boolean Cancelado { get; set; } = false;
 
     }
 }
