@@ -1,5 +1,6 @@
 ﻿using Entidades;
 using Microsoft.EntityFrameworkCore.Query.Internal;
+using Microsoft.Extensions.Logging;
 using Repositorio;
 
 namespace Servicos
@@ -52,11 +53,13 @@ namespace Servicos
 
         public void Extornar(int id, Boolean ExtornarVenda)
         {
-            var vendaExistente = _repoVenda.BuscarId(id);
-
+            EntidadeVenda vendaExistente = _repoVenda.BuscarId(id);
+            var QuantidadeAdicionar = vendaExistente.Quantidade * -1;
+        
             vendaExistente.Estornado = ExtornarVenda;
 
             _repoVenda.Atualizar(vendaExistente);
+            _servEvento.AtualizaIngressos(vendaExistente.EventoId, QuantidadeAdicionar);
         }
 
         public List<EntidadeVenda> BuscarTodos()

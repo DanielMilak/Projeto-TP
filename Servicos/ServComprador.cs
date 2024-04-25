@@ -28,7 +28,6 @@ namespace Servicos
                 Nome = inserirCompradorDto.Nome,
                 CPF = inserirCompradorDto.CPF,
                 Sexo = inserirCompradorDto.Sexo
-                //Cancelado = false
             };
 
             _repoComprador.Inserir(comprador);

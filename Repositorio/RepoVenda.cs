@@ -28,7 +28,6 @@ namespace Repositorio
         {
             _dataContext.Add(venda);
 
-
             _dataContext.SaveChanges();
         }
 
@@ -45,33 +44,20 @@ namespace Repositorio
 
             return venda ?? throw new Exception("Evento não encontrado");
         }
-        /* public void ExtornarVendaEvento(int eventoid)
-         {
-             List<EntidadeVenda>? venda = _dataContext.Venda.Where(venda => venda.EventoId == eventoid).ToList();
-             for (int i = 0; i < venda.Count; i++)
-             {
-                 venda[i].Estornado = true;
-             }
-             _dataContext.Update(venda);
 
-             _dataContext.SaveChanges();
-         }
-        */
         public void ExtornarVendaEvento(int eventoid)
         {
             List<EntidadeVenda>? vendas = _dataContext.Venda.Where(v => v.EventoId == eventoid).ToList();
             foreach (var venda in vendas)
             {
                 venda.Estornado = true;
-                _dataContext.Update(venda); // Atualiza cada venda individualmente no contexto
+                _dataContext.Update(venda);
             }
 
             _dataContext.SaveChanges();
         }
 
-
-
-public List<EntidadeVenda> BuscarTodos()
+        public List<EntidadeVenda> BuscarTodos()
         {
             var venda = _dataContext.Venda.Include(p => p.Comprador).Include(p => p.Evento).ToList();
 

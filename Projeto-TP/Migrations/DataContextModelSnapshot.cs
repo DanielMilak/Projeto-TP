@@ -73,6 +73,9 @@ namespace Projeto_TP.Migrations
                     b.Property<int>("QuantidadeIngresso")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("QuantidadeVendida")
+                        .HasColumnType("INTEGER");
+
                     b.Property<decimal>("ValorIngresso")
                         .HasColumnType("TEXT");
 

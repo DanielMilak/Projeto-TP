@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Projeto_TP.Migrations
 {
     /// <inheritdoc />
-    public partial class kugyhf : Migration
+    public partial class teste3 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -39,6 +39,7 @@ namespace Projeto_TP.Migrations
                     Atracao = table.Column<string>(type: "TEXT", nullable: false),
                     ValorIngresso = table.Column<decimal>(type: "TEXT", nullable: false),
                     QuantidadeIngresso = table.Column<int>(type: "INTEGER", nullable: false),
+                    QuantidadeVendida = table.Column<int>(type: "INTEGER", nullable: false),
                     DataEvento = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Cancelado = table.Column<bool>(type: "INTEGER", nullable: false)
                 },

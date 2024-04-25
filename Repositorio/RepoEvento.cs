@@ -9,6 +9,7 @@ namespace Repositorio
         void Atualizar(EntidadeEvento evento);
         public EntidadeEvento BuscarId(int id);
         List<EntidadeEvento> BuscarTodos();
+        public List<EntidadeEvento> BuscarMaisVendidos();
     }
 
     public class RepoEvento : IRepoEvento
@@ -47,6 +48,13 @@ namespace Repositorio
 
             return evento;
         }
+        
+        public List<EntidadeEvento> BuscarMaisVendidos()
+        {
+            var evento = _dataContext.Evento.OrderByDescending(evento => evento.QuantidadeVendida).Take(3).ToList();
 
+            return evento;
+        }
+        
     }
 }

@@ -17,5 +17,6 @@ namespace Servicos
         public decimal ValorIngresso { get; set; }
 
         public int QuantidadeIngresso { get; set; }
+
     }
 }

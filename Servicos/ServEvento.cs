@@ -11,6 +11,7 @@ namespace Servicos
         public void Cancelar(int id, Boolean CancelarEvento);
         List<EntidadeEvento> BuscarTodos();
         public void AtualizaIngressos(int id, int quantidadeingresso);
+        public List<EntidadeEvento> BuscarMaisVendidos();
     }
 
     public class ServEvento : IServEvento
@@ -33,7 +34,7 @@ namespace Servicos
                 Atracao = inserirEventoDto.Atracao,
                 ValorIngresso = inserirEventoDto.ValorIngresso,
                 QuantidadeIngresso = inserirEventoDto.QuantidadeIngresso
-               // Cancelado = true
+               
             };
 
             _repoEvento.Inserir(evento);
@@ -61,8 +62,16 @@ namespace Servicos
             var eventoExistente = _repoEvento.BuscarId(id);
 
             eventoExistente.QuantidadeIngresso -= quantidadeingresso;
+            eventoExistente.QuantidadeVendida += quantidadeingresso;
 
             _repoEvento.Atualizar(eventoExistente);
+        }
+        
+        public List<EntidadeEvento> BuscarMaisVendidos()
+        {
+            var eventos = _repoEvento.BuscarMaisVendidos();
+
+            return eventos;
         }
     }
 }

@@ -14,6 +14,8 @@
 
         public int QuantidadeIngresso {  get; set; }
 
+        public int QuantidadeVendida { get; set; }
+
         public DateTime DataEvento { get; set; }
 
         public Boolean Cancelado { get; set; } = false;

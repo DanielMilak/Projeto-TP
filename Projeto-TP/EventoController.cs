@@ -44,7 +44,22 @@ namespace Apresentacao
                 return BadRequest(e.Message);
             }
         }
+        
+        [HttpGet("MaisVendidos")]
+        public IActionResult BuscarMaisVendidos()
+        {
+            try
+            {
+                var eventos = _servEvento.BuscarMaisVendidos();
 
+                return Ok(eventos);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+        
         [HttpPut]
         public ActionResult CancelarEvento(int id, Boolean CancelarEvento)
         {
